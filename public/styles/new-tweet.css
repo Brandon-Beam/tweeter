@@ -1,0 +1,57 @@
+.container {
+  display: flex;
+
+  justify-content: center
+}
+
+textarea {
+  width: 100%
+}
+
+button {
+  font-family: 'Bungee', cursive;
+  background-color: blue;
+  color: white
+}
+
+article {
+  border: 1px solid black
+}
+
+article:hover {
+  box-shadow: 10px 5px 5px lightskyblue;
+}
+
+header {
+  display: flex;
+  justify-content: space-between
+}
+
+footer {
+  display: flex;
+  justify-content: space-between
+}
+
+.icons {
+  color: blue;
+}
+
+.fa-heart:hover {
+  color: red
+}
+
+.fa-flag:hover {
+  color: red
+}
+
+.fa-recycle:hover {
+  color: red
+}
+
+.tweetBody {
+  border-bottom: 2px solid black
+}
+
+.invalid {
+  color: red
+}
