@@ -1,17 +1,10 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
-// Test / driver code (temporary). Eventually will get this from the server.
-
+//required to prevent scripts from running from input tweets
 const escape = function (str) {
   let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 };
-
-
+//creates html block for repeated insert as tweet
 const createTweetElement = (data) => {
   let $tweet = `<article>
   <header class="tweetTop">
@@ -31,7 +24,7 @@ const createTweetElement = (data) => {
 `;
   return $tweet;
 };
-
+//renders all tweets in array using createTweetElement
 const renderTweets = function (tweets) {
   for (const tweet of tweets) {
     const $tweet = createTweetElement(tweet);
@@ -40,8 +33,7 @@ const renderTweets = function (tweets) {
     });
   }
 };
-
-
+//verifies tweet and posts if passes
 $(document).ready(function () {
   $.ajax('/tweets', { method: 'GET' })
     .then(function (data) {
@@ -70,7 +62,7 @@ $(document).ready(function () {
     event.preventDefault();
   });
 });
-
+//focuses on text field on button clicked
 $(document).ready(function () {
   $(".focus").click(function () {
     $(this).parents("body").find("textarea").focus();

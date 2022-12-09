@@ -6,3 +6,4 @@ $(document).ready(function () {
     }
   });
 });
+//counts characters in createTweetElement, makes num red if goes over by adding invalid class
