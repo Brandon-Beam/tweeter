@@ -58,12 +58,15 @@ $(document).ready(function () {
       $(this).parents(".container").find("#error-text").show(1000)
 
     } else {
-      $.post("/tweets", cereal);
-      $(this).find("textarea").val('')
-      $.ajax('/tweets', { method: 'GET' })
-        .then(function (data) {
-          renderTweets(data);
+      $.post("/tweets", cereal)
+        .then(function () {
+          $.ajax('/tweets', { method: 'GET' })
+            .then(function (data) {
+              renderTweets(data);
+            })
         })
+      $(this).find("textarea").val('')
+
     };
     event.preventDefault();
   });
