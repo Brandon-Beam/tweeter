@@ -8,8 +8,13 @@ textarea {
   width: 100%
 }
 
-button {
+.submit {
   font-family: 'Bungee', cursive;
   background-color: blue;
   color: white
+}
+
+.submit:active {
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }

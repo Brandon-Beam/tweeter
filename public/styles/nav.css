@@ -5,10 +5,18 @@ nav {
   background-color: #4056A1;
   color: #FFFFFF;
   padding: 0em 1.5em 0em 1.5em;
-
   justify-content: space-between;
   align-items: center;
   position: fixed;
+}
+
+.focus {
+  background-color: #4056A1;
+}
+
+.focus:active {
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
 
 span {

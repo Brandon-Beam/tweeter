@@ -65,10 +65,15 @@ $(document).ready(function () {
             })
         })
       $(this).find("textarea").val('')
-
     };
     event.preventDefault();
   });
+})
+
+$(document).ready(function () {
+  $(".focus").click(function () {
+    $(this).parents("body").find("textarea").focus();
+  })
 })
 
 

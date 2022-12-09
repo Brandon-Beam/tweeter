@@ -1,6 +1,6 @@
 .top {
   display: flex;
-
+  color: black;
   height: 520px;
   width: 100vw;
   flex-direction: column;
