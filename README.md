@@ -11,6 +11,10 @@ School project for Brandon to practice his HTML, CSS, JS, jQuery and AJAX front-
 3. Start the web server using the `npm run local` command. The app will be served at <http://localhost:8080/>.
 4. Go to <http://localhost:8080/> in your browser.
 
+##screenshots
+bottom of page https://github.com/Brandon-Beam/tweeter/blob/master/docs/tweeterBottom.png
+top of page https://github.com/Brandon-Beam/tweeter/blob/master/docs/tweeterTop.png
+
 ## Dependencies
 
 - Express
