@@ -55,3 +55,10 @@ footer {
 .invalid {
   color: red
 }
+
+#error-text {
+  display: none;
+  border: 2px solid red;
+  font-weight: bold;
+  color: red;
+}
