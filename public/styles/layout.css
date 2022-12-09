@@ -99,6 +99,7 @@ footer {
   width: 90vw
 }
 
+
 #error-text {
   display: none;
   border: 2px solid red;
@@ -110,6 +111,7 @@ footer {
   .mainBody {
     display: flex;
     flex-direction: row;
-    align-items: flex-start
+    align-items: flex-start;
+    width: 70vw
   }
 }
