@@ -24,8 +24,7 @@ const createTweetElement = (data) => {
   <p class="tweetBody">${escape(data.content.text)}</p>
   <footer class="tweetBottom">
     <p>${timeago.format(data.created_at)}</p>
-    <p class="icons"><i class="fa-solid fa-heart"></i><i class="fa-solid fa-flag"></i><i
-      class="fa-solid fa-recycle"></i>
+    <p class="icons"><i class="fa-solid fa-heart"></i><i class="fa-solid fa-flag"></i><i class="fa-solid fa-retweet"></i>
     </p>
   </footer>
 </article>
