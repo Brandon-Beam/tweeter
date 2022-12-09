@@ -38,3 +38,79 @@ main {
   background-color: #f4f1ec;
   flex-direction: column;
 }
+
+article {
+  border: 1px solid black;
+  margin-top: .5rem
+}
+
+article:hover {
+  box-shadow: 10px 5px 5px lightskyblue;
+}
+
+
+footer {
+  display: flex;
+  justify-content: space-between
+}
+
+.icons {
+  color: blue;
+}
+
+.fa-heart:hover {
+  color: red
+}
+
+.fa-flag:hover {
+  color: red
+}
+
+.fa-recycle:hover {
+  color: red
+}
+
+.tweetBody {
+  border-bottom: 2px solid black;
+}
+
+.tweetTop {
+  display: flex;
+  height: 12vh;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tweetBottom {
+  display: flex;
+  height: 5vh;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.invalid {
+  color: red
+}
+
+.mainBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 90vw
+}
+
+#error-text {
+  display: none;
+  border: 2px solid red;
+  font-weight: bold;
+  color: red;
+}
+
+@media only screen and (min-width:1024px) {
+  .mainBody {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start
+  }
+}

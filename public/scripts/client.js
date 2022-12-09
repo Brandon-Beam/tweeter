@@ -14,15 +14,15 @@ const escape = function (str) {
 
 const createTweetElement = (data) => {
   let $tweet = `<article>
-  <header>
+  <header class="tweetTop">
 
-    <h2><img src="${data.user.avatars}"/>${data.user.name}</h2>
+    <h4><img src="${data.user.avatars}"/>${data.user.name}</h4>
 
-    <h3>${data.user.handle}</h3>
+    <h5>${data.user.handle}</h5>
 
   </header>
   <p class="tweetBody">${escape(data.content.text)}</p>
-  <footer>
+  <footer class="tweetBottom">
     <p>${timeago.format(data.created_at)}</p>
     <p class="icons"><i class="fa-solid fa-heart"></i><i class="fa-solid fa-flag"></i><i
       class="fa-solid fa-recycle"></i>
