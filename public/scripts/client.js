@@ -4,31 +4,12 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 // Test / driver code (temporary). Eventually will get this from the server.
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd"
-    },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-]
+
+const escape = function (str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
 
 
 const createTweetElement = (data) => {
@@ -40,9 +21,9 @@ const createTweetElement = (data) => {
     <h3>${data.user.handle}</h3>
 
   </header>
-  <p class="tweetBody">${data.content.text}</p>
+  <p class="tweetBody">${escape(data.content.text)}</p>
   <footer>
-    <p>${data.created_at}</p>
+    <p>${timeago.format(data.created_at)}</p>
     <p class="icons"><i class="fa-solid fa-heart"></i><i class="fa-solid fa-flag"></i><i
       class="fa-solid fa-recycle"></i>
     </p>
@@ -56,17 +37,34 @@ const renderTweets = function (tweets) {
   for (const tweet of tweets) {
     const $tweet = createTweetElement(tweet)
     $(document).ready(function () {
-      $('#tweets-container').append($tweet);
+      $('#tweets-container').prepend($tweet);
     })
   }
 }
-renderTweets(data);
+
 
 $(document).ready(function () {
+  $.ajax('/tweets', { method: 'GET' })
+    .then(function (data) {
+      renderTweets(data);
+    })
   $("#new-tweet").submit(function (event) {
     const cereal = $(this).serialize();
-    console.log(cereal)
-    $.post("/tweets", cereal);
+    $(this).parents(".container").find("#error-text").hide(1000)
+    if ($(this).find("textarea").val() === "") {
+      $(this).parents(".container").find("#error-text").text("not enough text").show(1000)
+    }
+    if ($(this).find("textarea").val().length > 140) {
+      $(this).parents(".container").find("#error-text").show(1000)
+
+    } else {
+      $.post("/tweets", cereal);
+      $(this).find("textarea").val('')
+      $.ajax('/tweets', { method: 'GET' })
+        .then(function (data) {
+          renderTweets(data);
+        })
+    };
     event.preventDefault();
   });
 })
